@@ -1,0 +1,13 @@
+{% load i18n %}
+
+{% block content %}
+<h1>{% trans 'CUSTOMER' %}</h1>
+{% for customer in object_list %}
+{% csrf_token %}
+<li>{{ customer.title }}  <a href="{% url 'customer_update' customer.id %}">edit</a></li>
+{% empty %}
+<li>{% trans 'there are no customer' %}</li>
+{% endfor %}
+
+
+{% endblock %}
